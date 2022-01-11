@@ -11,12 +11,16 @@ const pageToShow = (pageName) => {
   return <div> Not Found</div>;
 };
 
+const configValue = {
+  showSignMeUp: true
+}
+
 const App = ({ pageName }) => {
 
   return (
     <div>
       <h2>NextJS Starter</h2>
-      <ConfigContext.Provider>{pageToShow(pageName)}</ConfigContext.Provider>
+      <ConfigContext.Provider value={configValue}>{pageToShow(pageName)}</ConfigContext.Provider>
     </div>
   );
 };
