@@ -5,12 +5,7 @@ import HeaderRouter from './HeaderRouter';
 const Speakers = () => {
   return (
     <>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <HeaderRouter />
-      </div>
+      <HeaderRouter />
     </>
   );
 };

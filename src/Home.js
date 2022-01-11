@@ -6,11 +6,15 @@ const Home = () => {
   return (
     <>
       <div>
-        <h4>Type 1: Routing</h4>
         <Header />
       </div>
+      {/** Meth 1: Routing Component
+        <div>
+          <Menu />
+        </div>
+      */}
+      {/** Meth 2: Routing between components */}
       <div>
-      <h4>Type 2: Routing</h4>
         <HeaderRouter />
       </div>
     </>

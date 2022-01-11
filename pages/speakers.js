@@ -2,9 +2,9 @@ import React from 'react';
 import App from '../src/App';
 import Container from '../src/container';
 
-const Speakers = ({isServer}) => {
+const Speakers = ({ isServer }) => {
 
-  console.log("Speakers" + isServer)
+  console.log('Speakers' + isServer);
   return (
     <Container>
       <App pageName='Speakers' />
