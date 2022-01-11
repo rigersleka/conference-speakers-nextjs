@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-
+import { ConfigContext } from './App';
 
 const SignMeUp = ({ signupCallback }) => {
   useEffect(() => {
@@ -11,6 +11,8 @@ const SignMeUp = ({ signupCallback }) => {
   const [email, setEmail] = useState();
   const [emailValid, setEmailValid] = useState(false);
   const [sendProcessing, setSendProcessing] = useState(false);
+
+  const context = useContext(ConfigContext);
 
   function validateEmail(email) {
     const re =
@@ -41,7 +43,7 @@ const SignMeUp = ({ signupCallback }) => {
 
   console.log(context);
 
-  return  (
+  return context.showSignMeUp === false ? null : (
     <div className='container'>
       <div>
         <ToastContainer />
