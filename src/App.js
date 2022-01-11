@@ -12,9 +12,10 @@ const pageToShow = (pageName) => {
 };
 
 const configValue = {
-  showSignMeUp: true
+  showSignMeUp: true,
+  showSpeakerSpeakingDays: true
 }
-
+console.log("ConfigContext "+ ConfigContext);
 const App = ({ pageName }) => {
 
   return (
