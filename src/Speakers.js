@@ -1,13 +1,11 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import { ConfigContext } from './App';
 import HeaderRouter from './HeaderRouter';
 import useAxiosFetch from './useAxiosFetch';
 
 const Speakers = () => {
-  const { isLoading, hasErrored, errorMessage, data } = useAxiosFetch(
-    'http://localhost:4000/speakers',
-    []
-  );
+  const { isLoading, hasErrored, errorMessage, data, updateDataRecord } =
+    useAxiosFetch('http://localhost:4000/speakers', []);
 
   const [speakingSaturday, setSpeakingSaturday] = useState(true);
   const [speakingSunday, setSpeakingSunday] = useState(true);
@@ -22,9 +20,14 @@ const Speakers = () => {
     setSpeakingSunday(!speakingSunday);
   };
 
-  if (hasErrored) {
-    return <div>{errorMessage} Run json-sever</div>;
-  }
+  if (hasErrored)
+    return (
+      <div>
+        {errorMessage}&nbsp; Make sure you have launched npm run json-server
+      </div>
+    );
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div>
