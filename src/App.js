@@ -15,7 +15,6 @@ const configValue = {
   showSignMeUp: true,
   showSpeakerSpeakingDays: true
 }
-console.log("ConfigContext "+ ConfigContext);
 const App = ({ pageName }) => {
 
   return (
