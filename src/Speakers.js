@@ -22,7 +22,6 @@ const Speakers = () => {
   };
 
   const newFilterList = useMemo(
-
     () =>
       data
         .filter(
@@ -79,19 +78,23 @@ const Speakers = () => {
             </div>
           )}
         </div>
-
-      <div className='row'>
-            {speakerListFiltered.map(info => {
-              console.log(info);
-              return (
-              <>
-                <SpeakerDetail 
-                firstName={info.firstName}
-                lastName={info.lastName}/>
-              </>)
-            })}
-      </div>
-
+        <div className='row'>
+          <div className='card-deck'>
+            {speakerListFiltered.map(
+              ({ id, firstName, lastName, bio }) => {
+                return (
+                  <SpeakerDetail
+                    key={id}
+                    id={id}
+                    firstName={firstName}
+                    lastName={lastName}
+                    bio={bio}
+                  />
+                );
+              }
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
