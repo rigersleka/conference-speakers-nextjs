@@ -1,12 +1,16 @@
 import React from 'react';
+import ImageToggleOnScroll from './ImageToggleOnScroll';
 
-const SpeakerDetail = ({ firstName, lastName }) => {
+const SpeakerDetail = ({ id }) => {
   return (
-    <>
-      <div>{firstName} </div>
-      <div>{lastName} </div>
-    </>
+    <div className='card col-4 cardmin'>
+      <ImageToggleOnScroll
+        className='card-img-top'
+        primaryImg={`/static/speakers/bw/Speaker-${id}.jpg`}
+        secondaryImg={`/static/speakers/Speaker-${id}.jpg`}
+        alt='{firstName} {lastName}'
+      />
+    </div>
   );
 };
-
 export default SpeakerDetail;
