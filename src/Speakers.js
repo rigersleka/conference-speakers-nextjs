@@ -1,8 +1,9 @@
-import React, { useState, useContext, useMemo } from 'react';
+import React, { useState, useContext, useMemo, useCallback } from 'react';
 import { ConfigContext } from './App';
 import HeaderRouter from './HeaderRouter';
 import SpeakerDetail from './SpeakerDetail';
 import useAxiosFetch from './useAxiosFetch';
+import axios from 'axios';
 
 const Speakers = () => {
   const { isLoading, hasErrored, errorMessage, data, updateDataRecord } =
@@ -33,9 +34,20 @@ const Speakers = () => {
     [speakingSaturday, speakingSunday, data]
   );
 
-  console.log(newFilterList);
-
   const speakerListFiltered = isLoading ? [] : newFilterList;
+
+  const heartFavoriteHandler = useCallback((e, speakerRec) => {
+    e.preventDefault();
+    const toggledRec = { ...speakerRec, favorite: !speakerRec.favorite };
+    axios
+      .put(`http://localhost:4000/speakers/${speakerRec.id}`, toggledRec)
+      .then(function (response) {
+        updateDataRecord(toggledRec);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   if (hasErrored)
     return (
@@ -81,14 +93,18 @@ const Speakers = () => {
         <div className='row'>
           <div className='card-deck'>
             {speakerListFiltered.map(
-              ({ id, firstName, lastName, bio }) => {
+              ({ id, firstName, lastName, bio, favorite, sat, sun }) => {
                 return (
                   <SpeakerDetail
                     key={id}
                     id={id}
+                    favorite={favorite}
+                    onHeartFavoriteHandler={heartFavoriteHandler}
                     firstName={firstName}
                     lastName={lastName}
                     bio={bio}
+                    sat={sat}
+                    sun={sun}
                   />
                 );
               }
