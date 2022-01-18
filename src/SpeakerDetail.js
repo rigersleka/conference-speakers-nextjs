@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageToggleOnScroll from './ImageToggleOnScroll';
+import ImageToggleOnScroll from './reusable-components/ImageToggleOnScroll';
 
 const SpeakerDetail = ({
   id,
@@ -23,6 +23,7 @@ const SpeakerDetail = ({
         <h4 className='card-title'>
           <button
             data-sessionid={id}
+            className={favorite ? "heartredbutton" : "heartdarkbutton"}
             onClick={(e) => {
               onHeartFavoriteHandler(e, {
                 id,

@@ -1,9 +1,9 @@
 import React, { useState, useContext, useMemo, useCallback } from 'react';
 import { ConfigContext } from './App';
-import HeaderRouter from './HeaderRouter';
-import SpeakerDetail from './SpeakerDetail';
-import useAxiosFetch from './useAxiosFetch';
 import axios from 'axios';
+import Navigation from './Navigation';
+import SpeakerDetail from './SpeakerDetail';
+import useAxiosFetch from './reusable-components/useAxiosFetch';
 
 const Speakers = () => {
   const { isLoading, hasErrored, errorMessage, data, updateDataRecord } =
@@ -60,7 +60,7 @@ const Speakers = () => {
 
   return (
     <>
-      <HeaderRouter />
+      <Navigation />
       <div className='container'>
         <div className='btn-toolbar  margintopbottom5 checkbox-bigger'>
           {context.showSpeakerSpeakingDays === false ? null : (

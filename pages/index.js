@@ -1,5 +1,5 @@
 import App from '../src/App.js';
-import Container from '../src/Container.js';
+import Container from '../src/reusable-components/Container.js';
 
 function Index({ isServer }) {
   return (

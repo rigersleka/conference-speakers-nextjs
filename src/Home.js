@@ -1,24 +1,16 @@
 import React from 'react';
-import Header from './Header';
-import HeaderRouter from './HeaderRouter';
+import Login from './Login';
+import Navigation from './Navigation';
 
 const Home = () => {
-  return (
-    <>
-      <div>
-        <Header />
-      </div>
-      {/** Meth 1: Routing Component
+    return (<>
         <div>
-          <Menu />
+            <Login/>
         </div>
-      */}
-      {/** Meth 2: Routing between components */}
-      <div>
-        <HeaderRouter />
-      </div>
-    </>
-  );
+        <div>
+            <Navigation/>
+        </div>
+    </>);
 };
 
 export default Home;

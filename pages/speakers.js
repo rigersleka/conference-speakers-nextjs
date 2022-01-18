@@ -1,6 +1,6 @@
 import React from 'react';
 import App from '../src/App';
-import Container from '../src/container';
+import Container from '../src/reusable-components/Container';
 
 const Speakers = ({ isServer }) => {
 
