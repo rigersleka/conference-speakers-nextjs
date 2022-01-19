@@ -1,11 +1,11 @@
 import React from 'react';
-import Login from './Login';
+import SignMeUp from './SignMeUp';
 import Navigation from './Navigation';
 
 const Home = () => {
     return (<>
         <div>
-            <Login/>
+           <SignMeUp/>
         </div>
         <div>
             <Navigation/>
