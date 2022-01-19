@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { ConfigContext } from './App';
+var Promise = require('promise');
 
 const SignMeUp = ({ signupCallback }) => {
   useEffect(() => {
@@ -26,21 +27,24 @@ const SignMeUp = ({ signupCallback }) => {
 
   function sendEmailToBackend() {
     setSendProcessing(true);
-    new Promise(function (resolve) {
+    new Promise((resolve) => {
       setTimeout(function () {
         setSendProcessing(false);
         setEmail('');
         resolve();
       }, 1000);
-    }).then(() => {
+    })
+    .then(() => {
       notify();
       signupCallback(email);
       setEmail('');
-    });
+    })
+    .catch(e => console.log(e));
+  
   }
 
   const buttonText = sendProcessing ? 'processing...' : 'Get Updates';
-  
+
   return context.showSignMeUp === false ? null : (
     <div className='container'>
       <div>
