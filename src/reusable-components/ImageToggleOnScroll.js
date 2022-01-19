@@ -1,4 +1,6 @@
 import React, {useRef, useEffect, useState} from "react";
+import Image from 'next/image';
+
 
 const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
 
@@ -31,7 +33,7 @@ const ImageToggleOnScroll = ({ primaryImg, secondaryImg }) => {
     };
 
     return isLoading ? null : (
-        <img
+        <Image
             src={inView ? secondaryImg : primaryImg}
             alt="" ref={imageRef} width="200" height="200"
         />
