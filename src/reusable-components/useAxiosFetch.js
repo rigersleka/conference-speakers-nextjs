@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer } from "react";
 import axios from "axios";
 
 const dataFetchReducer = (state, action) => {
@@ -20,7 +20,7 @@ const dataFetchReducer = (state, action) => {
         hasErrored: true,
         errorMessage: "Data Retrieve Failure"
       };
-    case "REPLACE_DATA":
+    case "REPLACE_DATA": {
       // The record passed (state.data) must have the attribute "id"
       const newData = state.data.map(rec => {
         return rec.id === action.replacerecord.id ? action.replacerecord : rec;
@@ -32,6 +32,7 @@ const dataFetchReducer = (state, action) => {
         errorMessage: "",
         data: newData
       };
+    }
     default:
       throw new Error();
   }
