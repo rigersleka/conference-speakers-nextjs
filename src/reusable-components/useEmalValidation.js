@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import { useReducer, useState } from 'react';
 import useInterval from './useInterval';
 
 const useEmailValidation = (secondsFormValidFor) => {
@@ -11,21 +11,22 @@ const useEmailValidation = (secondsFormValidFor) => {
   const [emailValid, setEmailValid] = useState(false);
 
   const reducer = (state, action) => {
-      state = action;
-      setEmailValid(validateEmail(state));
-      return action;
-  }
+    state = action;
+    setEmailValid(validateEmail(state));
+    return action;
+  };
 
-  const [email, setEmail] = useReducer(reducer, "");
+  const [email, setEmail] = useReducer(reducer, '');
   const [count, setCount] = useState(secondsFormValidFor);
 
   useInterval(
-      () => {
-        setCount(count -1);
-      },
-      count > 0 ? 1000 : null
+    () => {
+      setCount(count - 1);
+    },
+    count > 0 ? 1000 : null
   );
 
-  return {email, setEmail, count, emailValid};
-
+  return { email, setEmail, count, emailValid };
 };
+
+export default useEmailValidation;

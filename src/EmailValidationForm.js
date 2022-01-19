@@ -1,7 +1,5 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../static/site.css";
-import useEmailValidation from "./useEmailValidation";
+import useEmailValidation from "./reusable-components/useEmalValidation";
 
 function EmailValidatingForm() {
 
@@ -42,4 +40,5 @@ function EmailValidatingForm() {
     </div>
   );
 }
+
 export default EmailValidatingForm;

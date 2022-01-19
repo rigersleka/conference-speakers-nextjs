@@ -1,5 +1,5 @@
 import React from 'react';
-import EmailValidationForm from '../src/EmailValidationForm.js';
+import EmailValidationForm from '../src/EmailValidationForm';
 
 const emailValidation = () => {
     return <EmailValidationForm />

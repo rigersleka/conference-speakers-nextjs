@@ -90,8 +90,7 @@ const Speakers = () => {
             </div>
           )}
         </div>
-        <div className='row'>
-          <div className='card-deck'>
+        <div className='row'>   
             {speakerListFiltered.map(
               ({ id, firstName, lastName, bio, favorite, sat, sun }) => {
                 return (
@@ -108,8 +107,7 @@ const Speakers = () => {
                   />
                 );
               }
-            )}
-          </div>
+            )}      
         </div>
       </div>
     </>

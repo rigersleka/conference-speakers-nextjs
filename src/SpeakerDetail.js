@@ -23,7 +23,7 @@ const SpeakerDetail = ({
         <h4 className='card-title'>
           <button
             data-sessionid={id}
-            className={favorite ? "heartredbutton" : "heartdarkbutton"}
+            className={favorite ? 'heartredbutton' : 'heartdarkbutton'}
             onClick={(e) => {
               onHeartFavoriteHandler(e, {
                 id,
@@ -35,9 +35,7 @@ const SpeakerDetail = ({
                 sun,
               });
             }}
-          >
-            Un/Fav
-          </button>
+          ></button>
           <span>
             {firstName} {lastName}
           </span>
