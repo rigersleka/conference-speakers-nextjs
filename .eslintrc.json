@@ -12,7 +12,7 @@
   },
   "plugins": ["react-hooks"],
   "rules": {
-    "react-hooks/rules-of-hooks": "error"
-    // "@next/next/no-img-element": "off" // add this line for writing img tag without needable of importing from next
+    "react-hooks/rules-of-hooks": "error",
+    "@next/next/no-img-element": "off" // add this line for writing img tag without needable of importing from next
   }
 }
